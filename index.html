@@ -523,17 +523,21 @@ input[type="radio"] {
    ESTILOS PARA LA IMAGEN DE FONDO A PANTALLA COMPLETA
    ========================================================================== */
 /* ==========================================================================
-   ESTILOS PARA LA IMAGEN DE FONDO A PANTALLA COMPLETA (CORREGIDO)
+   ESTILOS PARA LA IMAGEN DE FONDO A PANTALLA COMPLETA (SOLUCIÓN SIN TRANSLATE)
    ========================================================================== */
 .background-image {
   position: fixed;
-  inset: 0;
   
-  /* CORRECCIÓN: Forzar dimensiones exactas a la pantalla completa */
-  width: 130vw !important;
-  height: 130vh !important;
+  /* 1. Forzamos dimensiones grandes */
+  width: 150vw !important;
+  height: 150vh !important;
   
-  /* Asegura que la imagen se adapte sin deformarse */
+  /* 2. SOLUCIÓN: Centrado físico perfecto usando márgenes sin tocar transform */
+  top: 0;
+  left: 0;
+  margin-top: -15vh !important;  /* La mitad del 30% extra de alto */
+  margin-left: -15vw !important; /* La mitad del 30% extra de ancho */
+  
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -541,13 +545,12 @@ input[type="radio"] {
   opacity: 0;
   visibility: hidden;
   transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
-
-  /* Resetea cualquier rotación y escala heredada de la grilla */
+  
+  /* Se mantiene plano y con el origen en el centro exacto */
   transform: rotate(0deg) scale(1) !important;
   transform-origin: center center !important;
   pointer-events: none;
 }
-
 
 /* Capa de contraste */
 .background-image::after {
@@ -557,18 +560,34 @@ input[type="radio"] {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* 📱 ADAPTACIÓN PARA MÓVILES (Pantallas menores a 768px) */
+@media (max-width: 767px) {
+  .background-image {
+    /* El tamaño de 150% que elegiste */
+    width: 100%;
+    height: 100%;
+    
+    /* CORRECCIÓN MATEMÁTICA: La mitad del 50% de exceso para mantener el centro perfecto */
+    margin-top: -25vh !important;   
+    margin-left: -25vw !important;  
+    
+    background-size: cover; 
+    background-position: center center; 
+  }
+}
+
+
 /* Muestra el fondo correspondiente al año marcado */
 li:has(input:checked) .background-image {
   opacity: 1;
   visibility: visible;
   
-  /* CORRECCIÓN ABSOLUTA: 
-     Anula la rotación de la ruleta (--index) y del elemento li (--i) 
-     para que el fondo se quede perfectamente recto y fijo en la pantalla */
+  /* Volvemos a tu fórmula original limpia sin el translate() que rompía el eje */
   transform: 
     rotate(calc( (var(--index) * var(--full-circle) / var(--items)) - var(--base-rotation) )) 
     rotate(calc(var(--i) * -360deg / var(--items))) !important;
 }
+
 
 /* Transición de estados activos */
 li:has(input:checked) {
