@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Columna 1: Branding e Introducción -->
         <div class="footer-col footer-about">
             <a href="#" class="footer-logo">Humdivunivcele</a>
-            <p class="footer-tagline">Explorando la historia, el arte y los hitos del mundo a través del diseño interactivo.</p>
+            <p class="footer-tagline">Explorando la historia, el arte y los hitos del mundo a través del mundo fisico y espiritual.</p>
             <div class="footer-socials">
                 <a href="https://x.com/humdivunivcele" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.2 2.4h3.3L14.3 11l8.4 11h-6.6l-5.2-6.8-5.9 6.8H1.7l7.6-8.7L1.2 2.4h6.8l4.7 6.2 5.5-6.2zm-1.2 16.6h1.8L7.1 4.3H5.1l11.9 14.7z"/></svg></a>
                 <a href="https://www.instagram.com/humdivunivcele" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.1c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .5 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.5 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.5-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.8.5-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.5 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4.1.7c-.8.3-1.4.7-2 1.4-.7.6-1.1 1.2-1.4 2-.3.7-.5 1.6-.6 2.9C0 8.3 0 8.7 0 12s0 3.7.1 5c.1 1.3.3 2.2.6 2.9.3.8.7 1.4 1.4 2 .6.7 1.2 1.1 2 1.4.7.3 1.6.5 2.9.6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 2.9-.6.8-.3 1.4-.7 2-1.4.7-.6 1.1-1.2 1.4-2 .3-.7.5-1.6.6-2.9.1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-2.9-.3-.8-.7-1.4-.1-1.4-2-.6-.7-1.2-1.1-2-1.4-.7-.3-1.6-.5-2.9-.6C15.7 0 15.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.2c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm6.4-11.2c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4z"/></svg></a>
@@ -467,6 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="footer-col footer-links">
             <h3>Explorar</h3>
             <ul>
+                <li><a href="/Acerca_de">Acerca de</a></li>
                 <li><a href="/Linea_tiempo">Línea de Tiempo</a></li>
                 <li><a href="/Proyectos_especiales">Proyectos Especiales</a></li>
                 <li><a href="/Documentales">Documentales</a></li>
