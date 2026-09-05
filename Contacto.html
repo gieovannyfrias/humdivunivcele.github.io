@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+      <link rel="icon" href="https://humdivunivcele.gieovannyfrias.com/Imagenes/Logo.webp" type="image/x-icon">
+    <title>Contacto - Cualquier información o manager esta disponible para recibirlo.</title>
+    <meta name="description" content="Envianos un mensaje oficial a nuestro sitio web.">
+      <!-- Control de Indexación y Canónicas -->
+    <link rel="canonical" href="https://humdivunivcele.gieovannyfrias.com">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+      <!-- Integración con Teléfonos Inteligentes (UI/UX) -->
+    <meta name="theme-color" content="#1a1a1a"> <!-- Reemplaza con el color principal de tu web -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+<!-- Seguridad de Privacidad (No envía datos de origen a enlaces externos) -->
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<!-- Pistas de Rendimiento para Redes Móviles (Client Hints) -->
+<meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width, Save-Data, ECT">
+
+<!-- Si el artículo tiene traducciones (SEO Internacional) -->
+<link rel="alternate" hreflang="en" href="https://humdivunivcele.gieovannyfrias.com">
+<link rel="alternate" hreflang="x-default" href="https://humdivunivcele.gieovannyfrias.com">
+
+<!-- Control de Caché (Para noticias de última hora con actualizaciones frecuentes) -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <!-- Open Graph / Metadatos para Redes Sociales (Facebook, WhatsApp) -->
+    <meta property="og:type" content="WebSite">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Contacto">
+    <meta property="og:title" content="Contacto - Cualquier información o manager esta disponible para recibirlo.">
+    <meta property="og:description" content="Envianos un mensaje oficial a nuestro sitio web.">
+    <meta property="og:url" content="https://humdivunivcele.gieovannyfrias.com/Contacto">
+    <meta property="og:image" content="https://humdivunivcele.gieovannyfrias.com/Imagenes/Logo.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Contacto">
+
+    <!-- Tarjetas Exclusivas para Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Contacto">
+    <meta name="twitter:title" content="Contacto - Cualquier información o manager esta disponible para recibirlo.">
+    <meta name="twitter:description" content="Envianos un mensaje oficial a nuestro sitio web.">
+    <meta name="twitter:image" content="https://humdivunivcele.gieovannyfrias.com/Imagenes/Logo.webp">
+</head>
+<body>
+<div class="section_0">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contact-wrapper">
+        <div class="contact-header">
+            <h1>Ponte en Contacto</h1>
+            <p>¿Tienes dudas sobre nosotros o quieres colaborar? Escríbenos.</p>
+        </div>
+
+        <!-- Formulario procesado por prevención nativa para pruebas locales -->
+       <form class="contact-form" action="https://formspree.io/f/maeybkvj" method="POST"> 
+  
+  <div class="form-group"> 
+    <label for="name">Nombre Completo</label> 
+    <!-- Se añadió name="name" -->
+    <input type="text" id="name" name="name" class="form-control" placeholder="Ej. John Doe" required> 
+  </div> 
+
+  <div class="form-group"> 
+    <label for="email">Correo Electrónico</label> 
+    <!-- Se añadió name="email" -->
+    <input type="email" id="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required> 
+  </div> 
+
+  <div class="form-group"> 
+    <label for="subject">Asunto</label> 
+    <!-- Se añadió name="subject" -->
+    <input type="text" id="subject" name="subject" class="form-control" placeholder="Motivo de tu mensaje" required> 
+  </div> 
+
+  <div class="form-group"> 
+    <label for="message">Mensaje</label> 
+    <!-- Se añadió name="message" -->
+    <textarea id="message" name="message" class="form-control" placeholder="Escribe los detalles aquí..." required></textarea> 
+  </div> 
+
+  <button type="submit" class="btn-submit">Enviar Mensaje</button> 
+
+</form>
+
+    </main>
+  </div>
+    <style>
+        /* ==========================================================================
+           1. ESTILOS BASE (Sincronizados con tu proyecto global)
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+      body{
+                    background: #2b2a2b; /* El mismo fondo oscuro de la rueda */
+
+      }
+        .section_0 {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 6rem 2rem 8rem 2rem; /* Espaciado para que el Header y Footer fixed no tapen el contenido */
+        }
+
+        /* Imagen de fondo sutil difuminada para la página de contacto */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('https://picsum.photos');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; /* Súper tenue para no perder legibilidad */
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        /* ==========================================================================
+           2. CONTENEDOR PREMIUM DE CONTACTO (GLASSMORPHISM)
+           ========================================================================== */
+        .contact-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 650px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) ease-out;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-header p {
+            font-family: 'Karla', sans-serif;
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           3. FORMULARIO E INPUTS PREMIUM
+           ========================================================================== */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            color: white;
+            font-family: 'Karla', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: steelblue; /* Sincronizado con las líneas de tu carrusel */
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 10px rgba(70, 130, 180, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Botón de envío estilizado */
+        .btn-submit {
+            background: steelblue;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 0.5rem;
+            transition: all 0.25s ease;
+        }
+
+        .btn-submit:hover {
+            background: #3572a5; /* Tono de acero ligeramente más oscuro */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(70, 130, 180, 0.3);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Animación suave de entrada de la página */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================================
+           4. ADAPTACIÓN RESPONSIVA (MÓVILES)
+           ========================================================================== */
+        @media (max-width: 600px) {
+            body {
+                padding: 6rem 1rem 4rem 1rem;
+            }
+            .contact-wrapper {
+                padding: 1.75rem;
+            }
+            .contact-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <!-- INYECCIÓN AUTOMÁTICA DEL HEADER Y FOOTER PREMIUM
+         Al estar guardado tu menú y estilos en este script, la página se maquetará sola al cargar -->
+    <script src="src/components/Header-Footer/Header-Footer-main.js" defer></script>
+</body>
+</html>
