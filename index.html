@@ -308,7 +308,10 @@
         <li><label for="year-26">2052</label></li>
       </ul>
     </div>
-
+  <div class="carousel-arrows">
+    <button type="button" class="arrow-btn prev-btn" aria-label="Anterior">←</button>
+    <button type="button" class="arrow-btn next-btn" aria-label="Siguiente">→</button>
+  </div>
   </div>
 </div>
   </main>
@@ -509,142 +512,229 @@ background-size: cover;
       transform: rotate(calc(var(--index) * -360deg / var(--total-items)));
     }
 
-    /* ==========================================================================
-       5. DISEÑO RESPONSIVO (Móviles)
-       ========================================================================== */
-    @media (max-width: 768px) {
-      .wheel-wrapper {
-        bottom: -80vw; 
-        width: 160vw;
-        height: 160vw;
-      }
-      .agency-content-wrapper { top: 38%; }
-      .agency-backgrounds { width: 320vmax; height: 320vmax; }
-    }
+/* Ocultas por defecto en computadoras */
+.carousel-arrows {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Contenedor de las flechas flotando sobre el componente */
+  .carousel-arrows {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 40px; /* Alineado a la altura de tus años */
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 9999; /* Por encima de todo */
+    pointer-events: none; /* Deja pasar clicks al fondo si es necesario */
+  }
+
+  /* Estilo premium para los botones de las flechas */
+  .arrow-btn {
+    pointer-events: auto; /* Activa los clicks sólo en los botones */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .arrow-btn:active {
+    background: #3b82f6; /* Se ilumina en azul corporativo al pulsar */
+    transform: scale(0.9);
+  }
+}
+
   </style>
   <script src="src/components/Header-Footer/Header-Footer-main.js" defer></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const wheel = document.querySelector(".agency-wheel");
-    const wrapper = document.querySelector(".agency-premium-carousel");
+document.addEventListener('DOMContentLoaded', () => {
+    const wheel = document.querySelector('.agency-wheel');
+    const wrapper = document.querySelector('.agency-premium-carousel');
+    
     if (!wheel || !wrapper) return;
-
-    const items = wheel.querySelectorAll("li");
+    
+    const items = wheel.querySelectorAll('li');
     const total = items.length;
-
+    
     // Sincronizar el total de elementos reales con la variable CSS
-    wheel.style.setProperty("--total-items", total);
-
+    wheel.style.setProperty('--total-items', total);
+    
     // Inicializar posiciones matemáticas del arco y mapear eventos change
     items.forEach((item, index) => {
-      item.style.setProperty("--item-index", index);
-
-      const input = document.getElementById(`year-${index}`);
-      if (input) {
-        input.addEventListener("change", () => {
-          // Inyectar el índice actual en el contenedor raíz para mover la rueda
-          wrapper.style.setProperty("--index", index);
-          
-          // 1. CONTROL DE IMÁGENES 4K (Totalmente estáticas, sin rotación)
-          const backgrounds = document.querySelectorAll('.bg-layer');
-          backgrounds.forEach((bg, bgIdx) => {
-            if (bgIdx === index) {
-              bg.style.opacity = "1";
-              bg.style.visibility = "visible";
-              bg.style.transform = "scale(1)"; /* Escala limpia sin distorsión por rotación */
-            } else {
-              bg.style.opacity = "0";
-              bg.style.visibility = "hidden";
-              bg.style.transform = "scale(0.95)"; /* Pequeño fade-out premium */
-            }
-          });
-
-          // 2. INTERPOLACIÓN FLUIDA DE TEXTOS CENTRADOS
-          const texts = document.querySelectorAll('.text-block');
-          texts.forEach((text, txtIdx) => {
-            text.style.opacity = txtIdx === index ? "1" : "0";
-            text.style.transform = txtIdx === index ? "translateY(0) scale(1)" : "translateY(40px) scale(0.98)";
-          });
-
-          // 3. RESALTADO CROMÁTICO DE LA ETIQUETA ACTIVA EN EL ARCO
-          items.forEach((li, liIdx) => {
-            const label = li.querySelector('label');
-            if (label) {
-              if (liIdx === index) {
-                label.style.color = "#3b82f6"; /* Azul eléctrico corporativo */
-                label.style.transform = "translate(-50%, -5px) scale(1.1)";
-              } else {
-                label.style.color = "rgba(255, 255, 255, 0.4)";
-                label.style.transform = "translate(-50%, 0) scale(1)";
-              }
-            }
-          });
-        });
-      }
-
-      // ==========================================================================
-      // NUEVA ADICIÓN: DETECTAR CLIC EN CUALQUIER AÑO DEL ARCO
-      // ==========================================================================
-      const label = item.querySelector('label');
-      if (label && input) {
-        label.style.cursor = "pointer"; // Feedback visual para que parezca un botón
+        item.style.setProperty('--item-index', index);
         
-        label.addEventListener("click", (e) => {
-          // Si tu HTML usa etiquetas <label for="year-X">, el navegador activa el radio automáticamente.
-          // e.preventDefault() previene que el navegador y este script disparen el evento dos veces.
-          e.preventDefault(); 
-          
-          if (!input.checked) {
-            input.checked = true;
-            input.dispatchEvent(new Event("change")); // Llama a todas las animaciones de arriba
-          }
-        });
-      }
-      // ==========================================================================
-
+        const input = document.getElementById(`year-${index}`);
+        if (input) {
+            input.addEventListener('change', () => {
+                // Inyectar el índice actual en el contenedor raíz para mover la rueda
+                wrapper.style.setProperty('--index', index);
+                
+                // 1. CONTROL DE IMÁGENES 4K
+                const backgrounds = document.querySelectorAll('.bg-layer');
+                backgrounds.forEach((bg, bgIdx) => {
+                    if (bgIdx === index) {
+                        bg.style.opacity = 1;
+                        bg.style.visibility = 'visible';
+                        bg.style.transform = 'scale(1)';
+                    } else {
+                        bg.style.opacity = 0;
+                        bg.style.visibility = 'hidden';
+                        bg.style.transform = 'scale(0.95)';
+                    }
+                });
+                
+                // 2. INTERPOLACIÓN FLUIDA DE TEXTOS CENTRADOS
+                const texts = document.querySelectorAll('.text-block');
+                texts.forEach((text, txtIdx) => {
+                    text.style.opacity = txtIdx === index ? 1 : 0;
+                    text.style.transform = txtIdx === index ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.98)';
+                });
+                
+                // 3. RESALTADO CROMÁTICO EN EL ARCO (Solo si no es móvil)
+                if (window.innerWidth > 768) {
+                    items.forEach((li, liIdx) => {
+                        const label = li.querySelector('label');
+                        if (label) {
+                            if (liIdx === index) {
+                                label.style.color = '#3b82f6';
+                                label.style.transform = 'translate(-50%, -5px) scale(1.1)';
+                            } else {
+                                label.style.color = 'rgba(255, 255, 255, 0.4)';
+                                label.style.transform = 'translate(-50%, 0) scale(1)';
+                            }
+                        }
+                    });
+                }
+            });
+        }
+        
+        // DETECTAR CLIC O TOQUE DIRECTO
+        const label = item.querySelector('label');
+        if (label && input) {
+            label.style.cursor = 'pointer';
+            label.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (!input.checked) {
+                    input.checked = true;
+                    input.dispatchEvent(new Event('change'));
+                }
+            });
+        }
     });
-
+    
     // Forzar el renderizado inicial según el input checked por defecto
-    const initialInput = wrapper.querySelector("input[type='radio']:checked");
+    const initialInput = wrapper.querySelector('input[type="radio"]:checked');
     if (initialInput) {
-      initialInput.dispatchEvent(new Event("change"));
+        initialInput.dispatchEvent(new Event('change'));
+    }
+    
+    // INTERACCIÓN CON LA RUEDA DEL MOUSE (Solo para pantallas grandes)
+    let isTransitioning = false;
+    window.addEventListener('wheel', (e) => {
+        if (window.innerWidth <= 768) return; // APAGADO EN MÓVIL
+        
+        const activeInput = wrapper.querySelector('input[type="radio"]:checked');
+        if (!activeInput || isTransitioning) return;
+        
+        e.preventDefault();
+        isTransitioning = true;
+        
+        const currentId = parseInt(activeInput.id.replace('year-', ''));
+        let nextId = e.deltaY > 0 ? (currentId + 1) % total : (currentId - 1 + total) % total;
+        const nextInput = document.getElementById(`year-${nextId}`);
+        
+        if (nextInput) {
+            nextInput.checked = true;
+            nextInput.dispatchEvent(new Event('change'));
+        }
+        
+        setTimeout(() => { isTransitioning = false; }, 400);
+    }, { passive: false });
+
+    // INTERACCIÓN TÁCTIL (Solo para pantallas grandes/tablets en horizontal)
+    let startY = 0;
+    window.addEventListener('touchstart', (e) => {
+        if (window.innerWidth <= 768) return; // APAGADO EN MÓVIL
+        startY = e.touches.clientY;
+    }, { passive: true });
+    
+    window.addEventListener('touchend', (e) => {
+        if (window.innerWidth <= 768) return; // APAGADO EN MÓVIL
+        
+        const endY = e.changedTouches.clientY;
+        const activeInput = wrapper.querySelector('input[type="radio"]:checked');
+        if (!activeInput) return;
+        
+        const currentId = parseInt(activeInput.id.replace('year-', ''));
+        if (Math.abs(startY - endY) > 40) {
+            let nextId = startY > endY ? (currentId + 1) % total : (currentId - 1 + total) % total;
+            const nextInput = document.getElementById(`year-${nextId}`);
+            if (nextInput) {
+                nextInput.checked = true;
+                nextInput.dispatchEvent(new Event('change'));
+            }
+        }
+    }, { passive: true });
+      // ==========================================================================
+    // CONTROL DE FLECHAS PARA MÓVIL
+    // ==========================================================================
+    const prevBtn = wrapper.querySelector('.prev-btn');
+    const nextBtn = wrapper.querySelector('.next-btn');
+
+    if (prevBtn && nextBtn) {
+        const handleArrowClick = (direction) => {
+            const activeInput = wrapper.querySelector('input[type="radio"]:checked');
+            if (!activeInput) return;
+
+            const currentId = parseInt(activeInput.id.replace('year-', ''));
+            let nextId;
+
+            if (direction === 'next') {
+                nextId = (currentId + 1) % total;
+            } else {
+                nextId = (currentId - 1 + total) % total;
+            }
+
+            const nextInput = document.getElementById(`year-${nextId}`);
+            if (nextInput) {
+                nextInput.checked = true;
+                nextInput.dispatchEvent(new Event('change'));
+                
+                // Centrado manual alternativo en caso de que el scroll nativo falle
+                setTimeout(() => {
+                    const activeLi = wheel.querySelector(`li:nth-child(${nextId + 1})`);
+                    if (activeLi && window.innerWidth <= 768) {
+                        wheel.scrollTo({
+                            left: activeLi.offsetLeft - (wheel.offsetWidth / 2) + (activeLi.offsetWidth / 2),
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 50);
+            }
+        };
+
+        nextBtn.addEventListener('click', () => handleArrowClick('next'));
+        prevBtn.addEventListener('click', () => handleArrowClick('prev'));
     }
 
-    // INTERACCIÓN INTEGRADA: SOPORTE PARA RUEDA DEL MOUSE (Mouse Wheel)
-    window.addEventListener("wheel", (e) => {
-      const activeInput = wrapper.querySelector("input[type='radio']:checked");
-      if (!activeInput) return;
-
-      const currentId = parseInt(activeInput.id.replace("year-", ""));
-      let nextId = e.deltaY > 0 ? (currentId + 1) % total : (currentId - 1 + total) % total;
-
-      const nextInput = document.getElementById(`year-${nextId}`);
-      if (nextInput) {
-        nextInput.checked = true;
-        nextInput.dispatchEvent(new Event("change"));
-      }
-    }, { passive: true });
-
-    // INTERACCIÓN INTEGRADA: CONTROL DESLIZANTE PARA MÓVILES (Swipe Control)
-    let startY = 0;
-    window.addEventListener("touchstart", (e) => startY = e.touches.clientY, { passive: true });
-    window.addEventListener("touchend", (e) => {
-      const endY = e.changedTouches.clientY;
-      const activeInput = wrapper.querySelector("input[type='radio']:checked");
-      if (!activeInput) return;
-
-      const currentId = parseInt(activeInput.id.replace("year-", ""));
-      if (Math.abs(startY - endY) > 40) {
-        let nextId = startY > endY ? (currentId + 1) % total : (currentId - 1 + total) % total;
-        const nextInput = document.getElementById(`year-${nextId}`);
-        if (nextInput) {
-          nextInput.checked = true;
-          nextInput.dispatchEvent(new Event("change"));
-        }
-      }
-    }, { passive: true });
 });
+
 </script>
 </body>
 </html>
