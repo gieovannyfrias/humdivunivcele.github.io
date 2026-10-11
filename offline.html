@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="icon" href="https://humdivunivcele.gieovannyfrias.com/Imagenes/Logo.webp" type="image/x-icon">
+    <title>Estado del Nodo de Seguridad - Elemsegpriv</title>
+    <meta name="description" content="Elemsegpriv ofrece servicios profesionales de seguridad privada y vigilancia integral. Personal capacitado para proteger tu empresa, comercio y hogar con total confianza." />  
+    
+</head>
+<body>
+
+    <div class="blur-orb orb-1"></div>
+    <div class="blur-orb orb-2"></div>
+
+<div class="container">
+        <!-- Icono de estado (Modificable por el logo de tu empresa) -->
+        <div class="brand-icon offline-pulse">⚡</div>
+        
+        <h1>Modo de Espera humdivunivcele</h1>
+        <p>No se ha podido establecer comunicación con los servidores centrales. Las funciones en la nube se encuentran temporalmente suspendidas de manera local.</p>
+        
+        <div class="info-box">
+            <strong>¿Qué puede hacer ahora?</strong>
+            <ul>
+                <li>Verificar los cables de red corporativos o la red Wi-Fi asignada.</li>
+                <li>Trabajar sobre los documentos guardados localmente en su estación.</li>
+                <li>El sistema se sincronizará automáticamente al restablecer el acceso.</li>
+            </ul>
+        </div>
+
+        <button class="btn-retry" onclick="window.location.reload();">Reintentar Conexión</button>
+    </div>
+
+    <style>
+        /* --- Paleta de Colores Oficial Elemsegpriv (Dorado & Azul Marino) --- */
+        :root {
+            --bg-dark: #070b12;
+            --glass-bg: rgba(11, 19, 36, 0.75);
+            --glass-border: rgba(212, 175, 55, 0.15); /* Borde dorado sutil */
+            --text-pure: #ffffff;
+            --text-soft: #94a3b8;
+            --accent-gold: #d4af37; /* Dorado del Escudo */
+            --accent-blue: #1e40af; /* Azul de Seguridad Privada */
+            --font-clean: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --primary-color: #0f172a; /* Azul marino premium */
+            --accent-color: #0284c7;  /* Azul corporativo brillante */
+            --bg-color: #f8fafc;      /* Fondo gris ultra claro */
+            --text-main: #334155;     /* Texto principal */
+            --text-muted: #64748b;    /* Texto secundario */
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-pure);
+            font-family: var(--font-clean);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 24px;
+          zoom:75%;
+        }
+
+        /* --- Orbes de Luz de Fondo Ambientales --- */
+        .blur-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 1;
+            opacity: 0.25;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-blue);
+            top: -10%;
+            right: 10%;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-gold);
+            bottom: 5%;
+            left: 15%;
+        }
+
+           .container {
+            max-width: 550px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .brand-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: #f0fdf4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #16a34a;
+            font-weight: bold;
+            font-size: 24px;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* Simulación de pulso de red */
+        .offline-pulse {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        h1 {
+            color:white;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            text-align: left;
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 8px;
+            color: var(--text-main);
+        }
+
+        .btn-retry {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 32px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-retry:hover {
+            background-color: var(--accent-color);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .6; }
+        }
+    </style>
+</body>
+</html>
