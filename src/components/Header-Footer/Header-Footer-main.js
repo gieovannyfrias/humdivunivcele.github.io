@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
             text-decoration: none;
             letter-spacing: 0.5px;
             font-family: 'Poppins', sans-serif;
+display: flex;
+    align-items: center;
+    flex-wrap: wrap;
         }
 
        
@@ -164,7 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
             text-decoration: none;
             letter-spacing: 0.5px;
             font-family: 'Poppins', sans-serif;
-            margin-bottom: 1rem;
+               display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
         }
 
         .footer-tagline {
@@ -405,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const headerHTML = `
         <header class="site-header">
             <div class="header-container">
-                <a href="#" class="site-logo">Humdivunivcele</a>
+                <a href="#" class="site-logo"><img src="https://humdivunivcele.gieovannyfrias.com/Imagenes/Logo_transparente.webp" style="width: 100px; height: 60px;">Humdivunivcele</a>
                 
                 <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
                     <span class="hamburger"></span>
@@ -454,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         <!-- Columna 1: Branding e Introducción -->
         <div class="footer-col footer-about">
-            <a href="#" class="footer-logo">Humdivunivcele</a>
+            <a href="#" class="footer-logo"><img src="https://humdivunivcele.gieovannyfrias.com/Imagenes/Logo_transparente.webp" style="width: 100px; height: 60px;">Humdivunivcele</a>
             <p class="footer-tagline">Explorando la historia, el arte y los hitos del mundo a través del mundo fisico y espiritual.</p>
             <div class="footer-socials">
                 <a href="https://x.com/humdivunivcele" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.2 2.4h3.3L14.3 11l8.4 11h-6.6l-5.2-6.8-5.9 6.8H1.7l7.6-8.7L1.2 2.4h6.8l4.7 6.2 5.5-6.2zm-1.2 16.6h1.8L7.1 4.3H5.1l11.9 14.7z"/></svg></a>
